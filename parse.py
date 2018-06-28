@@ -9,7 +9,7 @@ def find_games():
     base_url = ("https://pub.gamezop.com/v3/games?id=")
     pub_id = input ("Enter publisher ID: ")
 
-    # Generating complete URL
+    # Generating complete URL 
     final_url = base_url + pub_id
     response_status = requests.get(final_url)
     response_code = response_status.status_code
@@ -19,7 +19,7 @@ def find_games():
     if (response_code == 200):
         for game in (data["games"]):
             print (game["name"]["en"])
-        print()
+        
     
     elif (response_code == 401):
         print ("The publisher ID you entered is wrong. Please check again and re-enter.")
@@ -54,7 +54,8 @@ def leaderboard():
     game_code = input ("Enter game code: ")
     final_url = base_url + game_code
     response_status = requests.get(final_url)
-    
+    respcode = response_status.status_code
+    print (respcode)
     data = response_status.json()
     data_2 = response_status.json()
 
@@ -83,6 +84,9 @@ def leaderboard_score():
     
     
     response_body = requests.post(url = "https://pub.gamezop.com/v2/leaderboards/scores", data = data)
+    respcode = response_body.status_code
+    if (respcode != 200):
+        leaderboard_score()
     response_body_json = response_body.json()
     response_code = response_body
    
