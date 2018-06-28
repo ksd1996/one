@@ -1,8 +1,8 @@
-import requests
 import json
 import urllib.request
 import webbrowser
 import os
+import requests
 
 
 base_url = "https://pub.gamezop.com/v3/games?id="
@@ -38,9 +38,9 @@ writeToJSONFile (path, fileName, data)
 
 
 def my_api():
-    base_url = "http://localhost:8000/"
+    base_url = "http://localhost:80/"
     final_url = base_url + fileName + ".json"
-    webbrowser.open_new(final_url)
+    #webbrowser.open_new(final_url)
 
 my_api()
 
@@ -51,16 +51,3 @@ if (choice == "y"):
 
 if (choice == "n"):
     exit()
-
-
-
-
-
-
-
-
-
-
-
-
-
