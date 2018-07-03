@@ -41,7 +41,7 @@ def my_api():
     base_url = "http://localhost:80/"
     final_url = base_url + fileName + ".json"
     #webbrowser.open_new(final_url)
-    print (data_api2)
+    print (response_status.json()["games"]["name"])
 
 my_api()
 
