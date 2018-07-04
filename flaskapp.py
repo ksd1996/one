@@ -39,7 +39,7 @@ def gamenames():
         gamename = []
         for game in (data["games"]):
             gamename.append(game["name"]["en"])
-        return jsonify(gamename)   
+        return str(gamename)   
     
     elif (response_code == 401):
         return jsonify("Publisher ID entered is invalid.")
