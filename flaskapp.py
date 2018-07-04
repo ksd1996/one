@@ -25,12 +25,14 @@ def catch_all(path):
 def gamenames():   
     if ("id" in request.args):
         pub_id = request.args["id"]
+        print('ID: '+ pub_id)
     else:
         return ("Key value does not exist. Enter id as key.")
     
     base_url = ("https://pub.gamezop.com/v3/games?id=") + pub_id
     response_status = requests.get(base_url)
     response_code = response_status.status_code
+    print('Response code: ' + str(response_code))
     
     if (response_code == 200):
         data = response_status.json()
